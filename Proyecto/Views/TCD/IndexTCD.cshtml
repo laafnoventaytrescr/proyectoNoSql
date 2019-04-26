@@ -1,34 +1,30 @@
-﻿
-@{
-    ViewBag.Title = "IndexTCD";
-}
+﻿@using Proyecto.Controllers
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <title></title>
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.load('current', { 'packages': ['line'] });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Year', 'Sales', 'Expenses'],
-                ['2004', 1000, 400],
-                ['2005', 1170, 460],
-                ['2006', 660, 1120],
-                ['2007', 1030, 540]
-            ]);
 
-            var options = {
-                title: 'Company Performance',
-                curveType: 'function',
-                legend: { position: 'bottom' }
-            };
+           
+      
 
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        var options = {
+            chart: {
+                title: 'Compra y venta',
+                subtitle: ' (USD)'
+            },
+            width: 900,
+            height: 500
+        };
 
-            chart.draw(data, options);
-        }
+        var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
     </script>
 </head>
 
@@ -61,19 +57,22 @@
         </div>
     </header>
 
-    <section id="grafico">
+    <!-- Page Content -->
+    <section>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 mx-auto mb-5">
-                    <h2>Grafico Lineal</h2>
-                    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+                    <h2>Descripción</h2>
+                    <hr>
+                    <p>Suele hacer referencia a la asociación cambiaria que se puede establecer entre dos monedas de distintas naciones. Este dato permite saber qué cantidad de una moneda X se puede conseguir al ofrecer una moneda Y. En otras palabras, el tipo de cambio señala cuánta plata puedo adquirir con divisas de otro país.</p>
                 </div>
             </div>
         </div>
     </section>
+   
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="~/Scripts/Grafico3.js"></script>
+    @*<script src="~/Scripts/Grafico3.js"></script>*@
 </body>

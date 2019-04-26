@@ -12,7 +12,7 @@ namespace Proyecto.Models
         {
             DateTime fechaActual = DateTime.Today;
             string indicador;
-            string fecha1 = "01/01/2010";
+            string fecha1 = "01/01/2018";
             string fecha2 = Convert.ToDateTime(fechaActual).ToString("dd/mm/yyyy");
             string nombre = "Jose Julian";
             string subNivel = "N";
